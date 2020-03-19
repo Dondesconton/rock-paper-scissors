@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Function scope example</title>
+</head>
+
+<body>
+  <button onclick="game()" style="align-items: center;">Play!</button>
+
+  <script>
+   
+
+    function computerPlay() {
+      let gameElements = ['rock', 'scissors', 'paper'];
+      let randomNumber = Math.floor(Math.random() * gameElements.length);
+      return gameElements[randomNumber];
+    }
+
+
+    function PlayRound(playerSelection, computerSelection) {
+      if (playerSelection === "paper" && computerSelection === "scissors" ||
+        playerSelection === "rock" && computerSelection === "paper" ||
+        playerSelection === "scissors" && computerSelection === "rock") {
+        return alert("You Looser!...Boooo");
+      }
+      else if (playerSelection === "scissors" && computerSelection === "paper" ||
+        playerSelection === "paper" && computerSelection === "rock" ||
+        playerSelection === "rock" && computerSelection === "scissors") {
+        return alert("You Win!...Cheers");
+      }
+      else if (playerSelection === "" || playerSelection === null && computerSelection === "paper" ||
+        computerSelection === "scissors" || computerSelection === "rock") {
+        return alert("No entendí tu respuesta");
+      }
+      else {
+        return alert("Tie!");
+      }
+    }
+
+    function game() {
+      let playerScore = 0;
+      let computerScore = 0;
+
+      for (let i = 0; i < 5; i++); {
+
+        let computerSelection = computerPlay();
+        let playerSelection = prompt("Choose between Rock, Scissors and Papper ").toLowerCase();
+        alert(`Computer Played: "${computerSelection}"`);
+        const gameOutput = PlayRound(playerSelection, computerSelection);
+
+
+        if (alert.includes("Win,", 8)) {
+          playerScore++;
+
+        } else {
+          computerScore++;
+        }
+
+        if (playerScore > computerScore) {
+          alert("You won the game, congratulations")
+        }
+        else if (playerScore < computerScore) {
+          alert("You lost the game, reload and try again");
+        }
+        else {
+          "Tied, fair played"
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
