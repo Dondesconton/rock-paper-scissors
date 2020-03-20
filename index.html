@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h1>Play Rock Scissors and Paper 5 times to beat Andrés el terrible, Good luck!</h1>
+  <h1>Play Rock Scissors and Paper 5 times to beat Andrés el terr, Good luck!</h1>
   <button onclick="game()" style="align-items: center;">Play!</button>
 
   <script>
@@ -31,7 +31,8 @@
         playerSelection === "rock" && computerSelection === "scissors") {
         return alert("You Win!...Cheers");
       }
-      else if (playerSelection === "" || playerSelection === null)  {
+      else if (playerSelection === "" || playerSelection === null && computerSelection === "paper" ||
+        computerSelection === "scissors" || computerSelection === "rock") {
         return alert("No entendí tu respuesta");
       }
       else {
@@ -64,7 +65,8 @@
         else if (playerScore < computerScore) {
           alert("You lost the game, reload and try again");
         }
-        
+        else {
+          "Tied, fair played"
         }
       }
     }
